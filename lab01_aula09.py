@@ -6,6 +6,8 @@ import numpy as np
 import skfuzzy as fuzz
 from skfuzzy import control as ctrl
 import matplotlib.pyplot as plt
+import os
+from IPython.display import display, Image
 
 # ------------------------------------------------------------------------------
 # 1) VARIÁVEIS LINGUÍSTICAS
@@ -110,6 +112,9 @@ for temp in temperaturas_teste:
 # 6) GRÁFICOS
 # ------------------------------------------------------------------------------
 
+# Garante que a pasta 'imagens' exista
+os.makedirs("imagens", exist_ok=True)
+
 temperatura.view()
 plt.savefig(
     "imagens/lab01_temperatura.png",
@@ -126,4 +131,9 @@ plt.savefig(
 )
 plt.close()
 
-print("\nGráficos salvos em AULA_09/imagens/")
+print("\nGráficos salvos em imagens/")
+
+# Exibir imagens diretamente no notebook
+print("\n--- EXIBIÇÃO DOS GRÁFICOS ---")
+display(Image(filename="imagens/lab01_temperatura.png"))
+display(Image(filename="imagens/lab01_velocidade.png"))
